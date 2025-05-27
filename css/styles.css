@@ -1,0 +1,577 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 3; /* Ensure it is above other elements */
+}
+
+.logo-image {
+    margin: -5px 0px;
+    height: 75px; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center the text */
+}
+
+.nav-links li {
+    margin: 0 10px;
+    position: relative; /* Ensure the dropdown menu is positioned relative to the parent */
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 16px; /* Navigation link font size */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover animation for navbar links */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #008080; /* Teal color to match the site's palette */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+
+
+.nav-links a:hover::after {
+    width: 70%;
+}
+
+
+
+/* Dropdown arrow */
+.dropdown-arrow {
+    margin-left: 5px;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    background-color: white; /* Change background color to match navbar */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute; /* Make it an overlay */
+    top: 130%; /* Move it further down */
+    left: 0; /* Adjust left to position it correctly */
+    min-width: 200px; /* Set minimum width to prevent text wrapping */
+    z-index: 2; /* Ensure it is above other elements */
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    color: black; /* Change text color to black */
+    padding: 2.5px 10px; /* Reduce padding to decrease space between items */
+    display: block;
+    text-decoration: none;
+    text-align: center; /* Center the text */
+}
+
+/* Hover effect for dropdown menu items - only underline, no background change */
+.dropdown-menu a:hover {
+    background-color: transparent; /* Remove background color change */
+}
+
+/* Show dropdown on hover for large screens */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-menu {
+        display: flex;
+        left: 0; /* Align to the left */
+    }
+
+    .dropdown-toggle::after {
+        content: none; /* Hide arrow on larger screens */
+    }
+
+    .dropdown-menu a {
+        text-align: left; /* Align text to the left */
+        padding: 5px 15px; /* Adjust padding for better spacing */
+    }
+}
+
+/* Hamburger icon */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 4; /* Ensure it is above other elements */
+}
+
+.hamburger .bar {
+    height: 3px;
+    background-color: black; /* Change color to black */
+    width: 100%;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger .bar:nth-child(1) {
+    top: 5px;
+}
+
+.hamburger .bar:nth-child(2),
+.hamburger .bar:nth-child(3) {
+    top: 12px;
+}
+
+.hamburger .bar:nth-child(4) {
+    top: 19px;
+}
+
+/* Animated hamburger icon for cross */
+.hamburger.active .bar:nth-child(1) {
+    top: 12px;
+    width: 0%;
+    left: 50%;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.hamburger.active .bar:nth-child(4) {
+    top: 12px;
+    width: 0%;
+    left: 50%;
+}
+
+/* Media Query for small screens */
+/* Responsive styles moved to responsive.css */
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Hero content paragraph styles moved below */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 255, 0.25); /* Blue overlay with 50% transparency */
+    z-index: 1;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    z-index: 2; /* Ensure content is above the overlay */
+    padding: 20px; /* Add padding to ensure content stays inside the hero image */
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    font-size: 30px; /* Hero title font size */
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 18px; /* Hero paragraph font size */
+    margin-bottom: 2rem;
+    max-width: 1000px; /* Set the maximum width */
+    margin-left: auto; /* Center align */
+    margin-right: auto; /* Center align */
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Add space between buttons */
+}
+
+.hero-buttons button {
+    padding: 1rem 2rem;
+    font-size: 16px; /* Hero button font size */
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.hero-buttons .button-left {
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-buttons .button-left:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #f0f0f0;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.hero-buttons .button-left:hover:before {
+    width: 100%;
+}
+
+.hero-buttons .button-right {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-buttons .button-right:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: white;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.hero-buttons .button-right:hover:before {
+    width: 100%;
+}
+
+.hero-buttons .button-right:hover {
+    color: black;
+}
+
+/* Responsive styles moved to responsive.css */
+/* About Us Section Styles */
+.about-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px; /* Reduced padding to decrease space between sections */
+    background-color: #fff; /* Match the background color with other sections */
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center; /* Center items vertically */
+}
+
+.about-image {
+    flex: 1;
+    padding: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-text {
+    flex: 2;
+    padding: 20px;
+}
+
+.about-text h2 {
+    font-size: 28px; /* About section main title font size */
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-size: 16px; /* About section main paragraph font size */
+    line-height: 1.6;
+}
+
+.about-extra {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-extra-item {
+    flex: 1;
+}
+
+.about-extra-item h3 {
+    font-size: 24px; /* About section subtitles font size */
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.about-extra-item h3.animating {
+    transform: scale(1.05);
+    text-shadow: 0 0 8px rgba(0, 128, 128, 0.3);
+}
+
+.about-extra-item p {
+    font-size: 14px; /* About section sub paragraphs font size */
+    line-height: 1.4;
+}
+
+/* Responsive styles moved to responsive.css */
+
+/* Services Section Styles */
+.services {
+    margin-top: -20px;
+    padding: 0 20px 50px; /* Reduced padding to decrease space between sections */
+    background-color: #fff;
+}
+
+.services-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+.services-header h2 {
+    flex: 1;
+    font-size: 30px; /* Services section main title font size */
+    margin-right: 20px;
+    color: #333;
+}
+
+.services-header p {
+    flex: 2;
+    font-size: 18px; /* Services section main paragraph font size */
+    line-height: 1.6;
+    color: #555;
+}
+
+.services-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 30px auto 0;
+    gap: 40px;
+}
+
+.service-item {
+    flex: 1;
+    text-align: center;
+    background-color: transparent;
+    padding: 20px;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    /* Border removed as requested */
+}
+
+.service-item.fade-in {
+    opacity: 1;
+}
+
+.service-item img {
+    width: 90%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    font-size: 22px; /* Services section subtitles font size */
+    margin: 10px 0;
+    color: #333;
+}
+
+.service-item p {
+    font-size: 15px; /* Services section sub paragraphs font size */
+    line-height: 1.5;
+    color: #555;
+    max-width: 90%;
+    margin: 0 auto 15px;
+}
+
+.more-button {
+    background-color: transparent;
+    color: #008080;
+    border: 1px solid #008080;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 15px; /* Services section button font size */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.more-button:hover {
+    background-color: #008080;
+    color: white;
+}
+
+/* Responsive styles moved to responsive.css */
+
+/* Placeholder Page Styles */
+.placeholder-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.placeholder-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.placeholder-content h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #008080;
+}
+
+.placeholder-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.placeholder-icon {
+    font-size: 80px;
+    margin-bottom: 30px;
+    color: #008080;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #008080;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #006666;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #eef7f8; /* Blue palette background color */
+    padding: 30px 0;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-logo {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-copy {
+    flex: 1;
+    text-align: right;
+    font-size: 14px; /* Footer copyright font size */
+    color: black; /* Change text color to black for better contrast */
+}
+
+/* Responsive styles moved to responsive.css */
+
+
+

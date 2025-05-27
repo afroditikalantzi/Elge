@@ -1,0 +1,212 @@
+/* Responsive CSS Styles */
+
+/* Media Query for small screens */
+@media (max-width: 768px) {
+    /* Navbar responsive styles */
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: white;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        padding: 15px 0;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Submenu for mobile screens */
+    .dropdown-menu {
+        display: none;
+        position: relative;
+        top: 0;
+        transition: all 0.3s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: flex;
+        max-height: 200px;
+    }
+
+    /* Access the first link differently */
+    .dropdown-menu a:first-child {
+        margin-top: 0px;
+        margin-bottom: -20px;
+        padding: 5px 0px;
+    }
+
+    /* Access the last link differently */
+    .dropdown-menu a:last-child {
+        padding-bottom: 10px;
+    }
+
+    /* Arrow styles */
+    .dropdown-toggle::after {
+        content: '▼';
+        margin-left: 5px;
+        font-size: 12px;
+    }
+
+    .dropdown.open .dropdown-toggle::after {
+        content: '▲';
+    }
+    
+    /* Hero Section responsive styles */
+    .hero {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons button {
+        margin: 0.5rem 0;
+    }
+    
+    /* About Section responsive styles */
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-image, .about-text {
+        padding: 10px;
+    }
+
+    .about-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .about-extra {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .about-extra-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .about-extra-item p {
+        font-size: 0.9rem;
+    }
+    
+    /* Services Section responsive styles */
+    .services {
+        margin-top: -20px;
+    }
+    
+    .services-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .services-header h2 {
+        margin-right: 0;
+        margin-bottom: 15px;
+        font-size: 26px;
+    }
+    
+    .services-header p {
+        font-size: 16px;
+    }
+
+    .services-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .service-item {
+        padding-bottom: 30px;
+        margin-bottom: 10px;
+    }
+    
+    .service-item h3 {
+        font-size: 20px;
+    }
+    
+    .service-item img {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .service-item p {
+        font-size: 15px;
+    }
+    
+    /* Footer responsive styles */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-logo {
+        margin-bottom: 15px;
+    }
+
+    .footer-copy {
+        text-align: center;
+    }
+}
+
+/* Media Query for medium screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 28px;
+    }
+    
+    .hero-content p {
+        font-size: 16px;
+    }
+    
+    .services-header h2 {
+        font-size: 26px;
+    }
+    
+    .services-header p {
+        font-size: 16px;
+    }
+    
+    .service-item h3 {
+        font-size: 20px;
+    }
+    
+    .service-item img {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* Media Query for large screens has been removed as the .container class was unused */
