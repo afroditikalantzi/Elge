@@ -491,8 +491,16 @@ body {
 
 /* Responsive styles moved to responsive.css */
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0; /* Remove default body margin */
+}
+
 /* Placeholder Page Styles */
 .placeholder-container {
+    flex-grow: 1; /* Allow this container to grow and push footer down */
     display: flex;
     flex-direction: column;
     justify-content: center;
