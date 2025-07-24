@@ -1,22 +1,25 @@
 # ELGE - Accounting Services Website
 
 ## Overview
-This is a responsive website developed for **ELGE**, a Greek accounting services firm. It presents the company’s offerings, team, and contact information in a clean, modern, and user-friendly interface.
+**ELGE** is a modern, responsive website built for a Greek accounting services firm. The platform is designed to present the company's services, team, and contact information in a clean and professional format that reflects the brand’s credibility and attention to detail.
 
-[**Live Demo – View the website here**](https://nightdragon2000.github.io/Elge)
+The website is fully responsive, optimized for mobile, tablet, and desktop viewing, and uses minimal but effective interactive elements for enhanced usability.
+
+**[Live Site – Visit the Website](https://nightdragon2000.github.io/Elge)**
 
 ## Features  
-- Responsive design for mobile, tablet, and desktop  
-- Interactive navigation menu with dropdown functionality  
-- Dedicated services section  
-- “About Us” section with team/company details  
-- Consistent branding and modern UI  
+- Fully responsive layout supporting all device types  
+- Interactive navigation with dropdown menus  
+- Dedicated sections for services, about, and contact  
+- Clear presentation of the team and company profile  
+- Modern user interface with consistent branding  
+- Fast-loading, lightweight front-end implementation 
 
-## Technologies Used
-- HTML5
-- Tailwind CSS
-- JavaScript 
-- Font Awesome for icons
+## System Architecture
 
+- **Markup**: HTML5  
+- **Styling**: Tailwind CSS  
+- **Interactivity**: JavaScript  
+- **Icons**: Font Awesome  
 
 
