@@ -5,7 +5,7 @@
 
 The website is fully responsive, optimized for mobile, tablet, and desktop viewing, and uses minimal but effective interactive elements for enhanced usability.
 
-**[Live Site – Visit the Website](https://nightdragon2000.github.io/Elge)**
+**[Live Site – Visit the Website](https://afroditikalantzi.github.io/Elge)**
 
 ## Features  
 - Fully responsive layout supporting all device types  
